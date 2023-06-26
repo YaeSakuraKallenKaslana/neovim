@@ -1,4 +1,5 @@
 -- 定义nvim需要安装那些插件
+--
 local packer = require("packer")
 
 
@@ -27,8 +28,30 @@ packer.startup({
     -- nightfox
     use("EdenEast/nightfox.nvim")
 
+    -- bufferline
+    use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" }})
+    
+    -- lualine
+    use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+    use("arkav/lualine-lsp-progress")
 
+    -- telescop
+    use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
 
+    -- telescope extensions
+    use ("LinArcX/telescope-env.nvim")
+
+    -- dashboard-nvim
+    use("glepnir/dashboard-nvim")
+
+    use("ahmedkhalf/project.nvim")
+
+    -- treesitte
+    use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
+
+    -- nvim-lsp
+    use("williamboman/nvim-lsp-installer")
+    use({"neovim/nvim-lspconfig"})
 
     if paccker_bootstrap then
         packer.sync()
