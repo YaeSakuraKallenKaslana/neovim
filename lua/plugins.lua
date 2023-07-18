@@ -46,12 +46,30 @@ packer.startup({
 
     use("ahmedkhalf/project.nvim")
 
-    -- treesitte
+    -- treesitte(语法高亮)
     use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
 
-    -- nvim-lsp
-    use("williamboman/nvim-lsp-installer")
-    use({"neovim/nvim-lspconfig"})
+    -- nvim-lsp,nvim-lsp不再维护了现在更换成其跌打升级的新一代lsp
+    -- use("williamboman/nvim-lsp-installer")
+    -- use({"neovim/nvim-lspconfig"})
+    use({"williamboman/mason.nvim"})
+    use({"williamboman/mason-lspconfig.nvim"})
+
+    -- 补全引擎
+    use("hrsh7th/nvim-cmp")
+    -- snippet 引擎
+    use("hrsh7th/vim-vsnip")
+    -- 补全源
+    use("hrsh7th/cmp-vsnip")
+    use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
+    use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
+    use("hrsh7th/cmp-path") -- { name = 'path' }
+    use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
+
+    -- 常见编程语言代码段
+    use("rafamadriz/friendly-snippets")
+
+
 
     if paccker_bootstrap then
         packer.sync()
