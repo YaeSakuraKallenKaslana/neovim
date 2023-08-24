@@ -24,4 +24,3 @@ require('plugin-config.nvim-treesitter')
 
 -- LSP
 require("lsp.setup")
-
