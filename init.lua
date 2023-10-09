@@ -1,27 +1,28 @@
-require("elysia").setup({})
--- -- 基础配置
--- require('basic')
+require("elysia").setup({
+    frontend = {
+        enable = true,
+        -- 下边的都是默认值可以省略
+        linter = "eslint_d",
+        ---@type "eslint_d" | "prettier" | "tsserver"
+        formatter = "tsserver",
+        format_on_save = false,
+        cspell = false,
+        tailwindcss = true,
+        prisma = false,
+        -- vue will take over typescript lsp
+        vue = false,
+        -- extra lsp command provided by typescript.nvim
+        typescript = {
+          keys = {
+            ts_organize = "gs",
+            ts_rename_file = "gR",
+            ts_add_missing_import = "ga",
+            ts_remove_unused = "gu",
+            ts_fix_all = "gf",
+            ts_goto_source = "gD",
+          },
+        },
+      },
 
--- -- 快捷键设置
--- require('keybindings')
+})
 
--- -- Packer插件管理
--- require('plugins')
-
--- -- 主题设置
--- require('colorscheme')
-
--- -- 插件配置
--- require('plugin-config.nvim-tree')
-
--- require('plugin-config.bufferline')
-
--- require('plugin-config.lualine')
--- require('plugin-config.telescope')
--- require('plugin-config.dashboard')
--- require('plugin-config.project')
-
--- require('plugin-config.nvim-treesitter')
-
--- -- LSP
--- require("lsp.setup")
